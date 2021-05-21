@@ -9,7 +9,7 @@ public class MainUser {
 	public static void main(String[] args) {
 		
 		UserService userService = new UserService();
-		User user = new User("Boby", "1234");
+		User user = new User("Boba", "we3rewf34");
 		
 		userService.saveUser(user);
 		
