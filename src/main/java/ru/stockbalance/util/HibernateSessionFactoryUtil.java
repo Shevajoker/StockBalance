@@ -20,9 +20,9 @@ public class HibernateSessionFactoryUtil {
 				StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(config.getProperties());
 				sessionFactory = config.buildSessionFactory(builder.build());
 			} catch (Exception e) {
-				System.out.println("EXCEPTION ---- Bad SessionFactory ----");
+				System.out.println("EXCEPTION !---- Bad SessionFactory ----!");
 				System.out.println(e);
-				System.out.println("EXCEPTION ---- Bad SessionFactory ----");
+				System.out.println("EXCEPTION !---- Bad SessionFactory ----!");
 			}
 		}
 		
