@@ -19,6 +19,8 @@ public class User {
 	private String login;
 	private String password;
 	
+	
+	
 	/**
 	 * Constructor
 	 */
@@ -32,8 +34,17 @@ public class User {
 	 * @param password
 	 */
 	public User (String login, String password){
-		this.login = login;
+		
+		if(login != null && login.length() < 20) {
+			this.login = login;	
+		} else {
+			System.out.println("Invalid LOGIN!!!!");
+		}
+		
 		this.password = password;
+		
+		
+		
 	}
 
 	
@@ -69,6 +80,8 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", login=" + login + ", password=" + password + "]";
 	}
+	
+	
 	
 	
 	

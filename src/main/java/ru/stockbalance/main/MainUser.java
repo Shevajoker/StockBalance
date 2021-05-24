@@ -9,10 +9,15 @@ public class MainUser {
 	public static void main(String[] args) {
 		
 		UserService userService = new UserService();
-		User user = new User("Boba", "we3rewf34");
+		User user ;;
 		
-		userService.saveUser(user);
+		user = userService.getUserById(5);
 		
+		if (user != null) {
+		System.out.println(user.toString());
+		} else {
+			System.out.println("user - null!");
+		}
 		
 		
 	}
