@@ -41,7 +41,12 @@ public class User {
 			System.out.println("Invalid LOGIN!!!!");
 		}
 		
-		this.password = password;
+		if(password != null && password.length() < 20) {
+			this.password = password;	
+		} else {
+			System.out.println("Invalid PASSWORD!!!!");
+		}
+		
 		
 		
 		
