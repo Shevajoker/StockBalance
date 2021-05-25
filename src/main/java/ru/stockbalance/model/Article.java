@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 
 /**
- * 77.74.28.4:22181/brw/ostatki.xls
+ * http://77.74.28.4:22181/brw/ostatki.xls
  * @author Designer
  *
  */
