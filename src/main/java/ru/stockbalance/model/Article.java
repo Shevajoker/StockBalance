@@ -1,11 +1,13 @@
 package ru.stockbalance.model;
 
+
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 
 /**
@@ -14,6 +16,7 @@ import javax.persistence.Id;
  *
  */
 @Entity
+@Table(name = "articles")
 public class Article {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +28,14 @@ public class Article {
 	private Date date;
 	
 	public Article() {}
+	
+	public Article(String article, String name, int stock) {
+		this.article = article;
+		this.name = name;
+		this.date = new Date();
+		this.stock = stock;
+		
+	}
 	
 	public Article(String article, String name, Date date, int stock) {
 		this.article = article;
@@ -65,7 +76,7 @@ public class Article {
 	
 
 	public Date getDate() {
-		return date;
+		return (Date) date.clone();
 	}
 
 	public void setDate(Date date) {
@@ -74,8 +85,11 @@ public class Article {
 
 	@Override
 	public String toString() {
-		return "Article [id=" + id + ", article=" + article + ", name=" + name + ", stock=" + stock + "]";
+		return "Article [id=" + id + ", article=" + article + ", name=" + name + ", stock=" + stock + ", date=" + date
+				+ "]";
 	}
+
+	
 
 	
 	

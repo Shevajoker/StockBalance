@@ -95,7 +95,7 @@ public class UserDaoImp implements UserDAO<User>{
 		List<User> users = null;
 		try {
 			transaction = session.beginTransaction();
-			users = session.createQuery("FROM users").list();
+			users = session.createQuery("FROM User").list();
 			transaction.commit();
 		} catch (Exception e) {
 			if (transaction != null) {

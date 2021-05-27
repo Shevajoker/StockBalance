@@ -4,6 +4,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
+import ru.stockbalance.model.Article;
 import ru.stockbalance.model.User;
 
 public class HibernateSessionFactoryUtil {
@@ -17,6 +18,7 @@ public class HibernateSessionFactoryUtil {
 			try {
 				Configuration config = new Configuration().configure(); 
 				config.addAnnotatedClass(User.class);
+				config.addAnnotatedClass(Article.class);
 				StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(config.getProperties());
 				sessionFactory = config.buildSessionFactory(builder.build());
 			} catch (Exception e) {

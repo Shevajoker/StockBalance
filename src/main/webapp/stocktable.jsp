@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,18 +19,26 @@
 <br>
 
 
-<table border="1" >
-<tr>
-	<td>Name</td>
-	<td>date1</td>
-	<td>date2</td>
-</tr>
-<tr>
-	<td>bead</td>
-	<td>20</td> 
-	<td>10</td>
-</tr>
 
+
+<table border="1" >
+
+    <tr>
+        <td><c:out value="Article"/></td>
+        <td><c:out value="Name"/></td>      
+        <td><c:out value="Date"/></td>     
+         
+        <td><c:out value="Stock"/></td>  
+    </tr>
+
+<c:forEach items="${allArticles}" var="art">
+    <tr>
+        <td><c:out value="${art.article}"/></td>
+        <td><c:out value="${art.name}"/></td>
+        <td><c:out value="${art.date}"/></td>
+        <td><c:out value="${art.stock}"/></td>  
+    </tr>
+</c:forEach>
 
 </table>
 

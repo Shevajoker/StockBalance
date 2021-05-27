@@ -10,6 +10,8 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 
+import ru.stockbalance.services.ArticleService;
+
 
 public class FileStock{
 
@@ -131,7 +133,7 @@ for (Row rows : excelSheet ) {
 		cell = rows.getCell(2); 
 		//check empty cell
 		if (cell == null || cell.getCellType() == CellType.BLANK) {
-			 System.out.println("Cell COUNT is empty");
+//			 System.out.println("Cell COUNT is empty");
 			} else {
 		//read article
 		switch (cell.getCellType()) {
@@ -165,11 +167,18 @@ for (Row rows : excelSheet ) {
 		
 		
 		
+		Article articleForDB = new Article(article, name, count);
+		ArticleService articleService = new ArticleService();
+		
+//		if (articleForDB.getStock() > -1 || articleForDB.equals(null)) {
+//		System.out.println(articleForDB.toString());
+//		articleService.saveArticle(articleForDB);
+//		
+//		}
 		
 		
 		
-		
-		System.out.println(article + " |*| " + name + "|*|" + count);
+//		System.out.println(article + " |*| " + name + "|*|" + count);
 	
 		
 		article = null;

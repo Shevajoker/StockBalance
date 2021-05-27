@@ -1,5 +1,8 @@
 package ru.stockbalance.main;
 
+
+import java.util.List;
+
 import ru.stockbalance.model.User;
 import ru.stockbalance.services.UserService;
 
@@ -9,16 +12,19 @@ public class MainUser {
 	public static void main(String[] args) {
 		
 		UserService userService = new UserService();
-		User user ;;
+		List<User> users = userService.getAllUsers();
 		
-		user = userService.getUserById(5);
 		
-		if (user != null) {
-		System.out.println(user.toString());
-		} else {
-			System.out.println("user - null!");
-		}
-		
+//		User user ;;
+//		
+//		user = userService.getUserById(5);
+//		
+//		if (user != null) {
+//		System.out.println(user.toString());
+//		} else {
+//			System.out.println("user - null!");
+//		}
+//		
 		
 	}
 	
