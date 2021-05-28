@@ -19,4 +19,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>SerchByArticlenumberServlet</display-name>
+    <servlet-name>SerchByArticlenumberServlet</servlet-name>
+    <servlet-class>ru.stockbalance.servlets.SerchByArticlenumberServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SerchByArticlenumberServlet</servlet-name>
+    <url-pattern>/serchbyarticlenumber</url-pattern>
+  </servlet-mapping>
 </web-app>

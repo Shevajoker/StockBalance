@@ -21,5 +21,9 @@ public class ArticleService {
 		return articleDAO.getAllArticles();
 	}
 	
+	public List<Article> getArticlesByArticleNumber (String article){
+		return articleDAO.getArticlesByArticleNumber(article);
+	}
+	
 	
 }

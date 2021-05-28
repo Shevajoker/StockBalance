@@ -1,8 +1,6 @@
 package ru.stockbalance.servlets;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -15,15 +13,16 @@ import ru.stockbalance.model.Article;
 import ru.stockbalance.services.ArticleService;
 
 /**
- * Servlet implementation class EnterServlet
+ * Servlet implementation class SerchByArticlenumberServlet
  */
-public class EnterServlet extends HttpServlet {
+public class SerchByArticlenumberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public EnterServlet() {
+    public SerchByArticlenumberServlet() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -33,28 +32,23 @@ public class EnterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
 		List<Article> allArticles;
-		String name = (String) request.getParameter("login");
+		String articleNumber = request.getParameter("articleNumber").toString();
 		
 		ArticleService articleService = new ArticleService();
-		allArticles = articleService.getAllArticles();
+		allArticles = articleService.getArticlesByArticleNumber(articleNumber);
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("login", name);
+		
 		session.setAttribute("allArticles", allArticles);
 		
 		getServletContext().getRequestDispatcher("/stocktable.jsp").forward(request, response);
-		
-//		doGet(request, response);
 	}
 
 }

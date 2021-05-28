@@ -18,14 +18,14 @@ public class FileMain {
 //		file.readFromExcel(fileDir);
 		
 //		Article article = new Article();
-		List<Article> allArticle;
-		ArticleService articleService = new ArticleService();
-		allArticle = articleService.getAllArticles();
-		
-		for (Article art : allArticle) {
-			System.out.println(art.toString());
-		}
-		
+//		List<Article> allArticle;
+//		ArticleService articleService = new ArticleService();
+//		allArticle = articleService.getAllArticles();
+//		
+//		for (Article art : allArticle) {
+//			System.out.println(art.toString());
+//		}
+//		
 	}
 	
 }

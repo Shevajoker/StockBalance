@@ -5,6 +5,9 @@
 
 <hibernate-configuration>
 	<session-factory>
+	<property name="hibernate.connection.useUnicode">true</property>
+	<property name="hibernate.connection.characterEncoding">UTF-8</property>
+	<property name="hibernate.connection.charSet">UTF-8</property>
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
 		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/stock</property>
 		<property name="hibernate.connection.username">postgres</property>
