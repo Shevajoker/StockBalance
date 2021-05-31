@@ -12,7 +12,7 @@ public class FileMain {
 	
 	
 	public static void main(String[] args) throws IOException {
-		
+//		
 //		FileStock file = new FileStock();
 //		String fileDir =  "http://77.74.28.4:22181/brw/ostatki.xls";
 //		file.readFromExcel(fileDir);

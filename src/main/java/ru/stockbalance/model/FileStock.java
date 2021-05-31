@@ -167,9 +167,9 @@ for (Row rows : excelSheet ) {
 		
 		
 		
-		Article articleForDB = new Article(article, name, count);
-		ArticleService articleService = new ArticleService();
-		
+//		Article articleForDB = new Article(article, name, count);
+//		ArticleService articleService = new ArticleService();
+//		
 //		if (articleForDB.getStock() > -1 || articleForDB.equals(null)) {
 //		System.out.println(articleForDB.toString());
 //		articleService.saveArticle(articleForDB);
