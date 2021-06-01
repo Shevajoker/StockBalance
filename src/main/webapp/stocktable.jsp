@@ -5,7 +5,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
-<fmt:requestEncoding value="utf-8"/>
+
 <html>
 <head>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
@@ -19,7 +19,17 @@
 <br>
 
 <br>
-<input type="date" value="2020-05-25">
+<form action="serchbydate" method="post" accept-charset="UTF-8">
+	<input type="text" placeholder="Enter Article Number" name="articleNumber">
+	<input type="date" value="" name="dateIn">
+	-
+	<input type="date" value="" name="dateOut">
+	<button type="submit">search</button>
+</form>
+
+${dateIn}
+${error }
+
 <br>
 <br>
 <div>

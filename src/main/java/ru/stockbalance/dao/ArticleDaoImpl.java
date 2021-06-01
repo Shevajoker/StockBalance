@@ -1,5 +1,6 @@
 package ru.stockbalance.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -139,6 +140,33 @@ public class ArticleDaoImpl implements ArticleDAO<Article>{
 		
 		return allArticles;
 	}
+
+	@Override
+	public List<Article> getArticlesByDate(String article, Date dateIn, Date dateOut) {
+		List<Article> listArticle = null;
+		Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+		Transaction transaction = null;
+		try {
+		transaction = session.beginTransaction();
+	String sql = "FROM Article where article = ('"+ article +"') and date > ('"+ dateIn.g +"') and date < ('"+ dateOut +"')";
+		listArticle = session.createQuery(sql).list();
+		transaction.commit();
+		} catch (Exception e) {
+			if (transaction != null) {
+				transaction.rollback();
+			}
+			System.out.println("EXCEPTION !---- getArticlesByDate error ----!");
+			System.out.println(e.getMessage());
+		} finally {
+			
+			session.close();
+		}
+		
+		
+		return listArticle;
+	}
+	
+	
 	
 	
 

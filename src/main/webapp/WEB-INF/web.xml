@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <servlet>
     <description></description>
     <display-name>EnterServlet</display-name>
@@ -29,11 +29,20 @@
     <servlet-name>SerchByArticlenumberServlet</servlet-name>
     <url-pattern>/serchbyarticlenumber</url-pattern>
   </servlet-mapping>
-  
   <jsp-config>
     <jsp-property-group>
-        <url-pattern>*.jsp</url-pattern>
-        <page-encoding>UTF-8</page-encoding>
+      <url-pattern>*.jsp</url-pattern>
+      <page-encoding>UTF-8</page-encoding>
     </jsp-property-group>
-</jsp-config>
+  </jsp-config>
+  <servlet>
+    <description></description>
+    <display-name>SerchByDateServlet</display-name>
+    <servlet-name>SerchByDateServlet</servlet-name>
+    <servlet-class>ru.stockbalance.servlets.SerchByDateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SerchByDateServlet</servlet-name>
+    <url-pattern>/serchbydate</url-pattern>
+  </servlet-mapping>
 </web-app>
