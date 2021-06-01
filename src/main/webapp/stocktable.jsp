@@ -21,14 +21,16 @@
 <br>
 <form action="serchbydate" method="post" accept-charset="UTF-8">
 	<input type="text" placeholder="Enter Article Number" name="articleNumber">
-	<input type="date" value="" name="dateIn">
+	<input type="date" value="${dateIn}" name="dateIn">
 	-
-	<input type="date" value="" name="dateOut">
+	<input type="date" value="${dateOut}" name="dateOut">
 	<button type="submit">search</button>
 </form>
 
 ${dateIn}
-${error }
+
+<p style="color: red;">${error }</p>
+
 
 <br>
 <br>
@@ -44,7 +46,7 @@ ${error }
 
 
 
-<table border="1" >
+<table border="1">
 
     <tr>
         <td><c:out value="Article"/></td>
@@ -58,7 +60,7 @@ ${error }
     <tr>
         <td><c:out value="${art.article}"/></td>
         <td><c:out value="${art.name}"/></td>
-        <td><c:out value="${art.date}"/></td>
+        <td><fmt:formatDate value="${art.date}" pattern="dd-MM-yyyy"/></td>
         <td><c:out value="${art.stock}"/></td>  
     </tr>
 </c:forEach>

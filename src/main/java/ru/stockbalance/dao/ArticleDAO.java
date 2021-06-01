@@ -1,6 +1,6 @@
 package ru.stockbalance.dao;
 
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 
 public interface ArticleDAO<Entity> {
@@ -11,5 +11,5 @@ public interface ArticleDAO<Entity> {
 	public List<Entity> getAllArticles();
 	public void deleteArticle (Entity article);
 	public List<Entity> getArticlesByArticleNumber(String article);
-	public List<Entity> getArticlesByDate(String article, Date dateIn, Date dateOut);
+	public List<Entity> getArticlesByDate(String article, String dateIn, String dateOut);
 }

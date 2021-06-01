@@ -3,7 +3,9 @@ package ru.stockbalance.servlets;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -43,25 +45,16 @@ public class SerchByDateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		List<Article> allArticles;
-		Date dateIn = null;
-		Date dateOut = null;
+		
+		String dateIn = request.getParameter("dateIn");
+		String dateOut = request.getParameter("dateOut");
+		
 		String error = null;
 		String articleNumber = request.getParameter("articleNumber").toString();
 		SimpleDateFormat availDate = new SimpleDateFormat("dd-MM-yyyy");
-		try {
-			
-			dateIn = availDate.parse(request.getParameter("dateIn"));
-			dateOut = availDate.parse(request.getParameter("dateOut"));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			error = e.getMessage();
-			e.printStackTrace();
-		}
-		
 		
 		ArticleService articleService = new ArticleService();
 		allArticles = articleService.getArticlesByDate(articleNumber, dateIn, dateOut);
-		
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("dateIn", dateIn);

@@ -1,5 +1,6 @@
 package ru.stockbalance.services;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class ArticleService {
 		return articleDAO.getArticlesByArticleNumber(article);
 	}
 	
-	public List<Article> getArticlesByDate (String article, Date dateIn, Date dateOut){
+	public List<Article> getArticlesByDate (String article, String dateIn, String dateOut){
 		return articleDAO.getArticlesByDate(article, dateIn, dateOut);
 	}
 	
