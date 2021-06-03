@@ -32,5 +32,8 @@ public class UserService {
 		userDao.deleteUser(user);
 	}
 	
+	public boolean checkUser(String login, String password) {
+	return	userDao.checkUser(login, password);
+	}
 	
 }

@@ -1,11 +1,7 @@
 package ru.stockbalance.servlets;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -51,8 +47,6 @@ public class SerchByDateServlet extends HttpServlet {
 		
 		String error = null;
 		String articleNumber = request.getParameter("articleNumber").toString();
-		SimpleDateFormat availDate = new SimpleDateFormat("dd-MM-yyyy");
-		
 		ArticleService articleService = new ArticleService();
 		allArticles = articleService.getArticlesByDate(articleNumber, dateIn, dateOut);
 		

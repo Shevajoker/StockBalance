@@ -1,5 +1,6 @@
 package ru.stockbalance.dao;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -101,7 +102,7 @@ public class ArticleDaoImpl implements ArticleDAO<Article>{
 		Transaction transaction = null;
 		try {
 			transaction = session.beginTransaction();
-			allArticles = session.createQuery("FROM Article").list();
+			allArticles = session.createQuery("FROM Article where date = '"+ new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime())+"'").list();
 			transaction.commit();
 		} catch (Exception e) {
 			if (transaction != null) {

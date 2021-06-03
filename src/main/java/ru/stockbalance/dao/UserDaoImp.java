@@ -132,6 +132,45 @@ public class UserDaoImp implements UserDAO<User>{
 		
 	}
 
+	@Override
+	public boolean checkUser(String login, String password) {
+		
+		List<User> user = null;
+		
+		Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+		Transaction transaction = null;
+		
+		try {
+			transaction = session.beginTransaction();
+			user = session.createQuery("FROM User where login ='" + login + "'").list();
+			transaction.commit();
+		} catch (Exception e) {
+			if (transaction != null) {
+				transaction.rollback();
+			}
+			System.out.println("EXCEPTION !---- checkUser  error ----!");
+			System.out.println(e.getMessage());
+		} finally {
+			session.close();	
+		}
+		
+		if(user != null) {
+			for(User us : user) {
+				System.out.println(us.toString());
+				System.out.println(us.getPassword().trim());
+				if(us.getPassword().trim().equals(password.trim())) {
+					return true;
+				}
+			}
+			
+		} else {
+			return false;	
+		}
+		return false;
+		
+		
+	}
+
 	
 
 }

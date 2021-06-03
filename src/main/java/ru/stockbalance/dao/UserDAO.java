@@ -9,5 +9,6 @@ public interface UserDAO<Entity> {
 	public Entity getUserById(int id);
 	public List<Entity> getAllUsers();
 	public void deleteUser(Entity user);
+	public boolean checkUser (String login, String password);
 	
 }

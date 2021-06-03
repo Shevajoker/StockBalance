@@ -8,14 +8,19 @@
 
 <html>
 <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" >
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+
 <title>Stock TABLE</title>
 </head>
 <body>
 
-<h3>Hello ${login}</h3>
+<div class="container sm">
 
-<a href="index.jsp">Назад</a>
+<h3 class="text-center">Hello ${login}</h3>
+
+<a href="index.jsp"><button class="btn btn-outline-info">Назад</button></a>
+
 <br>
 
 <br>
@@ -27,7 +32,6 @@
 	<button type="submit">search</button>
 </form>
 
-${dateIn}
 
 <p style="color: red;">${error }</p>
 
@@ -45,9 +49,8 @@ ${dateIn}
 
 
 
-
-<table border="1">
-
+<table class="table">
+<thead>
     <tr>
         <td><c:out value="Article"/></td>
         <td><c:out value="Name"/></td>      
@@ -55,10 +58,10 @@ ${dateIn}
          
         <td><c:out value="Stock"/></td>  
     </tr>
-
+</thead>
 <c:forEach items="${allArticles}" var="art">
     <tr>
-        <td><c:out value="${art.article}"/></td>
+        <th scope="row"><c:out value="${art.article}"/></th>
         <td><c:out value="${art.name}"/></td>
         <td><fmt:formatDate value="${art.date}" pattern="dd-MM-yyyy"/></td>
         <td><c:out value="${art.stock}"/></td>  
@@ -66,6 +69,9 @@ ${dateIn}
 </c:forEach>
 
 </table>
+</div>
+
+
 
 
 
