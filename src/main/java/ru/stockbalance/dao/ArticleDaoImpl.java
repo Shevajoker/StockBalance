@@ -155,7 +155,7 @@ public class ArticleDaoImpl implements ArticleDAO<Article>{
 		if (article.equals("")) {
 			sql = "FROM Article where date > ('"+ dateIn +"') and date < ('"+ dateOut +"')";
 		} else {
-			sql = "FROM Article where article = ('"+ article +"') and date > ('"+ dateIn +"') and date < ('"+ dateOut +"')";
+			sql = "FROM Article where article = ('"+ article +"') and date >= ('"+ dateIn +"') and date <= ('"+ dateOut +"')";
 		}
 		
 		listArticle = session.createQuery(sql).list();
