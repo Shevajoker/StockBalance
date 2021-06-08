@@ -30,6 +30,8 @@ public class ArticleService {
 		return articleDAO.getArticlesByDate(article, dateIn, dateOut);
 	}
 	
-	
+	public void updateArticle (Article article) {
+		articleDAO.updateArticle(article);
+	}
 	
 }

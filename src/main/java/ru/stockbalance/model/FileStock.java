@@ -15,7 +15,13 @@ import ru.stockbalance.services.ArticleService;
 
 public class FileStock{
 
-
+/**
+ * Read row and save to DB
+ * 
+ * @param file - url
+ * @throws IOException
+ * @throws FileNotFoundException
+ */
 public void readFromExcel (String file) throws IOException, FileNotFoundException  {
 	HSSFWorkbook excleBook = null;
 	FileInputStream fis = null;
@@ -37,11 +43,11 @@ public void readFromExcel (String file) throws IOException, FileNotFoundExceptio
 		System.out.println(e.getMessage());
 	}
 	catch (IOException e) {
-		System.out.println("IOException - bich!");
+		System.out.println("IOException - !");
 		System.out.println(e.getMessage());
 	} 
 	catch (NullPointerException e) {
-		System.out.println("NullPointerException - bich!");
+		System.out.println("NullPointerException - !");
 		System.out.println(e.getMessage());
 	}
 	finally {
@@ -167,14 +173,17 @@ for (Row rows : excelSheet ) {
 		
 		
 		
-//		Article articleForDB = new Article(article, name, count);
-//		ArticleService articleService = new ArticleService();
-//		
-//		if (articleForDB.getStock() > -1 || articleForDB.equals(null)) {
-//		System.out.println(articleForDB.toString());
-//		articleService.saveArticle(articleForDB);
-//		
-//		}
+		
+		// save to DB 
+		
+		Article articleForDB = new Article(article, name, count);
+		ArticleService articleService = new ArticleService();
+		
+		if (articleForDB.getStock() > -1 || articleForDB.equals(null)) {
+		System.out.println(articleForDB.toString());
+		articleService.saveArticle(articleForDB);
+		
+		}
 		
 		
 		

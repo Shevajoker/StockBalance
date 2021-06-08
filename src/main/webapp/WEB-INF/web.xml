@@ -55,4 +55,10 @@
     <servlet-name>RegistrationServlet</servlet-name>
     <url-pattern>/registration</url-pattern>
   </servlet-mapping>
+  
+  
+  
+  <listener>
+        <listener-class>org.quartz.ee.servlet.QuartzInitializerListener</listener-class>
+    </listener>
 </web-app>
