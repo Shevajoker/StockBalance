@@ -37,7 +37,7 @@
 		<p style="color: red;">${error }</p>
 
 
-		<br> <br>
+		<br>
 		<div>
 			<form action="serchbyarticlenumber" method="post"
 				accept-charset="UTF-8">
@@ -46,11 +46,11 @@
 				<button type="submit">search</button>
 			</form>
 		</div>
-		<br> <br>
+		<br>
 
 
 
-<div style="width:3000px;">
+<div style="width:300px;">
   <canvas id="myChart"></canvas>
 </div>
 
@@ -79,70 +79,8 @@
 	</div>
 
 
-<script>
-
-var table = document.getElementsByClassName('table');
-console.log(table);
-console.log(table[0].rows[0].cells[0].textContent);
-console.log(table[0].rows.length);
-rowsCount = table[0].rows.length;
-
-var labelsData = "[";
-var dataData = "[";
-
-    for(i = 1; i < table[0].rows.length-1; i++){
-    	labelsData += "'" + table[0].rows[i].cells[2].textContent + "',";
-    	dataData += table[0].rows[i].cells[3].textContent + ","
-    	
-    	
-    }
-    labelsData += "'" + table[0].rows[rowsCount-1].cells[2].textContent + "']";
-    dataData += table[0].rows[rowsCount-1].cells[3].textContent + "]";
-
-    console.log(labelsData);
-    console.log(dataData);
-
-
-
-
-
-
-
-
-var ctx = document.getElementById('myChart').getContext('2d');
-ctx.canvas.width = 200;
-
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: labelsData,
-        datasets: [{
-            label: 'DIESEL фасад F8/D2 (32) энигма',
-            data: dataData,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)' 
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
-
-
-
-       </script> 
-
-
-
+<script src="js/chartData.js"></script>
+<script src="js/chart.js"></script>
 
 </body>
 </html>
