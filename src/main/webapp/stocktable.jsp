@@ -11,6 +11,7 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
 	rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
 
 <title>Stock TABLE</title>
@@ -49,6 +50,12 @@
 
 
 
+<div style="width:3000px;">
+  <canvas id="myChart"></canvas>
+</div>
+
+
+
 		<table class="table">
 			<thead>
 				<tr>
@@ -71,6 +78,68 @@
 		</table>
 	</div>
 
+
+<script>
+
+var table = document.getElementsByClassName('table');
+console.log(table);
+console.log(table[0].rows[0].cells[0].textContent);
+console.log(table[0].rows.length);
+rowsCount = table[0].rows.length;
+
+var labelsData = "[";
+var dataData = "[";
+
+    for(i = 1; i < table[0].rows.length-1; i++){
+    	labelsData += "'" + table[0].rows[i].cells[2].textContent + "',";
+    	dataData += table[0].rows[i].cells[3].textContent + ","
+    	
+    	
+    }
+    labelsData += "'" + table[0].rows[rowsCount-1].cells[2].textContent + "']";
+    dataData += table[0].rows[rowsCount-1].cells[3].textContent + "]";
+
+    console.log(labelsData);
+    console.log(dataData);
+
+
+
+
+
+
+
+
+var ctx = document.getElementById('myChart').getContext('2d');
+ctx.canvas.width = 200;
+
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: labelsData,
+        datasets: [{
+            label: 'DIESEL фасад F8/D2 (32) энигма',
+            data: dataData,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)' 
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+
+
+       </script> 
 
 
 

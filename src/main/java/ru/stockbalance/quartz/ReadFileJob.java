@@ -24,8 +24,8 @@ public class ReadFileJob implements Job{
 		ArticleService articleService = new ArticleService();
 		articles = articleService.getArticlesByDate("", new SimpleDateFormat("yyyy-MM-dd").format(new Date()), new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
 		
-		if (articles != null) {
-			System.out.println("Job - Update Articles");
+		if (articles.size() > 1) {
+			System.out.println("Job - Update Articles---" + articles);
 			for(Article art : articles) {
 				articleService.updateArticle(art);
 			}
