@@ -15,7 +15,7 @@
             <cron>
                 <name>ReadFileJob</name>
                 <job-name>ReadFileJob</job-name>
-                <cron-expression>0 0 8 1/1 * ? *</cron-expression>
+                <cron-expression>0 45 8 1/1 * ? *</cron-expression>
             </cron>
         </trigger>
     </schedule>

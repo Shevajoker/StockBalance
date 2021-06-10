@@ -24,7 +24,7 @@ public class ReadFileListener extends QuartzInitializerListener{
 			Scheduler schelder = factory.getScheduler();
 			JobDetail jobDetail = JobBuilder.newJob(ReadFileJob.class).build();
 			Trigger trigger = TriggerBuilder.newTrigger().withIdentity("ReadFileJob")
-					.withSchedule(CronScheduleBuilder.cronSchedule("0 0 8 1/1 * ? *"))
+					.withSchedule(CronScheduleBuilder.cronSchedule("0 45 8 1/1 * ? *"))
 					.startNow()
 					.build();
 			

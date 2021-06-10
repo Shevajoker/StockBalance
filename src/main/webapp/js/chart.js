@@ -2,7 +2,7 @@
  * 
  */
 var ctx = document.getElementById('myChart').getContext('2d');
-ctx.canvas.width = 200;
+
 
 var myChart = new Chart(ctx, {
     type: 'line',

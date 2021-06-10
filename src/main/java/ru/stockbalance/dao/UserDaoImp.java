@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
+import org.mindrot.jbcrypt.BCrypt;
 
 import ru.stockbalance.model.User;
 import ru.stockbalance.util.HibernateSessionFactoryUtil;
@@ -21,6 +21,11 @@ public class UserDaoImp implements UserDAO<User>{
 		
 		//Exception - length login and password must be < 20 
 		
+		String pw = user.getPassword();
+		pw = BCrypt.hashpw(pw, BCrypt.gensalt());
+		user.setPassword(pw);
+		
+		
 		// Open session. getSession Factory - from util.HibernateSessionFactoryUtil
 		Session session  = HibernateSessionFactoryUtil.getSessionFactory().openSession();
 		Transaction transaction = null;
@@ -32,7 +37,7 @@ public class UserDaoImp implements UserDAO<User>{
 			if (transaction != null) {
 				transaction.rollback();
 			}
-			System.out.println("EXCEPTION !---- save error ----!");
+			System.out.println("EXCEPTION !---- User save error ----!");
 			System.out.println(e.getMessage());
 		}  finally {
 			session.close();
@@ -135,6 +140,9 @@ public class UserDaoImp implements UserDAO<User>{
 	@Override
 	public boolean checkUser(String login, String password) {
 		
+		
+	
+		
 		List<User> user = null;
 		
 		Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
@@ -158,7 +166,7 @@ public class UserDaoImp implements UserDAO<User>{
 			for(User us : user) {
 				System.out.println(us.toString());
 				System.out.println(us.getPassword().trim());
-				if(us.getPassword().trim().equals(password.trim())) {
+				if(BCrypt.checkpw(password.trim(), us.getPassword().trim())) {
 					return true;
 				}
 			}
@@ -170,7 +178,5 @@ public class UserDaoImp implements UserDAO<User>{
 		
 		
 	}
-
-	
 
 }

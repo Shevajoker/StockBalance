@@ -13,6 +13,7 @@
 	rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+<link rel="stylesheet" href="css/backToTopButton.css">
 
 <title>Stock TABLE</title>
 </head>
@@ -50,7 +51,7 @@
 
 
 
-<div style="width:300px;">
+<div style="width:50%;">
   <canvas id="myChart"></canvas>
 </div>
 
@@ -79,8 +80,11 @@
 	</div>
 
 
+
+
+<a class="back_to_top" title="Наверх">&uarr;</a>
 <script src="js/chartData.js"></script>
 <script src="js/chart.js"></script>
-
+<script src="js/backToTopButton.js"></script>
 </body>
 </html>
