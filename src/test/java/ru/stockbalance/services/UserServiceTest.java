@@ -2,6 +2,8 @@ package ru.stockbalance.services;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -12,6 +14,8 @@ import ru.stockbalance.model.User;
 
 class UserServiceTest {
 
+	private int id = 0;
+	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 	}
@@ -34,15 +38,16 @@ class UserServiceTest {
 		assertNotNull(userService);
 	}
 
-//	@Test
-//	void testSaveUser() {
-//		UserService userService = new UserService();
-//		User user = new User("Jim", "qwerty");
-//		userService.saveUser(user);
-//		User user2 = userService.getUserById(user.getId());
-//		assertEquals(user.getId(), user2.getId()); 
-//		
-//	}
+	@Test
+	void testSaveUser() {
+		UserService userService = new UserService();
+		User user = new User("Jim", "qwerty");
+		userService.saveUser(user);
+		id = user.getId();
+		User user2 = userService.getUserById(user.getId());
+		assertEquals(user.getId(), user2.getId()); 
+		
+	}
 
 	@Test
 	void testGetUserById() {
@@ -52,22 +57,37 @@ class UserServiceTest {
 
 	@Test
 	void testGetAllUsers() {
-		fail("Not yet implemented");
+		List<User> users = null;
+		UserService userService = new UserService();
+		users = userService.getAllUsers();
+		assertEquals(true, (users.size()>1), "GooD");
+		
+
 	}
 
 	@Test
 	void testUpdateUser() {
-		fail("Not yet implemented");
+		UserService userService = new UserService();
+		User user = userService.getUserById(17);
+		user.setLogin("Set");
+		userService.updateUser(user);
+		assertEquals(user.getLogin(), "Set");
 	}
 
 	@Test
 	void testDeleteUser() {
-		fail("Not yet implemented");
+		UserService userService = new UserService();
+		User user = userService.getUserById(id);
+		userService.deleteUser(user);
+		user = userService.getUserById(id);
+		assertNull(user);
 	}
 
 	@Test
 	void testCheckUser() {
-		fail("Not yet implemented");
+		UserService userService = new UserService();
+		User user = new User("qwe", "123");
+		assertTrue(userService.checkUser(user.getLogin(), user.getPassword()));
 	}
 
 }

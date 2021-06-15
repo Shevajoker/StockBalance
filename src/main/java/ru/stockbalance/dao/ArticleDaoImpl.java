@@ -2,7 +2,6 @@ package ru.stockbalance.dao;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -102,7 +101,7 @@ public class ArticleDaoImpl implements ArticleDAO<Article>{
 		Transaction transaction = null;
 		try {
 			transaction = session.beginTransaction();
-			allArticles = session.createQuery("FROM Article where date = '"+ new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime())+"'").list();
+			allArticles = session.createQuery("FROM Article where date = '"+ new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime())+"' ORDER BY date").list();
 			transaction.commit();
 		} catch (Exception e) {
 			if (transaction != null) {
@@ -126,7 +125,7 @@ public class ArticleDaoImpl implements ArticleDAO<Article>{
 		Transaction transaction = null;
 		try {
 			transaction = session.beginTransaction();
-			allArticles = session.createQuery("FROM Article where article = '"+ article +"'").list();
+			allArticles = session.createQuery("FROM Article where article = '"+ article +"' ORDER BY date").list();
 			transaction.commit();
 		} catch (Exception e) {
 			if (transaction != null) {
@@ -153,9 +152,9 @@ public class ArticleDaoImpl implements ArticleDAO<Article>{
 		transaction = session.beginTransaction();
 		
 		if (article.equals("")) {
-			sql = "FROM Article where date >= ('"+ dateIn +"') and date <= ('"+ dateOut +"')";
+			sql = "FROM Article where date >= ('"+ dateIn +"') and date <= ('"+ dateOut +"') ORDER BY date";
 		} else {
-			sql = "FROM Article where article = ('"+ article +"') and date >= ('"+ dateIn +"') and date <= ('"+ dateOut +"')";
+			sql = "FROM Article where article = ('"+ article +"') and date >= ('"+ dateIn +"') and date <= ('"+ dateOut +"') ORDER BY date";
 		}
 		
 		listArticle = session.createQuery(sql).list();
