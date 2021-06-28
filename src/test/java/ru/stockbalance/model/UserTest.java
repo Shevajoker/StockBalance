@@ -31,46 +31,60 @@ class UserTest {
 
 	@Test
 	void testUserStringString() {
-		User user = new User("Bob", "pass");
+		User user = new User();
+		user.setLogin("Bob");
+		user.setPassword("pass");
 		assertInstanceOf(User.class, user);
 	}
 
 	@Test
 	void testGetId() {
-		User user = new User("Bob", "pass");
+		User user = new User();
+		user.setLogin("Bob");
+		user.setPassword("pass");
 		assertNotNull(user.getId());
 		
 	}
 
 	@Test
 	void testGetLogin() {
-		User user = new User("Bob", "pass");
+		User user = new User();
+		user.setLogin("Bob");
+		user.setPassword("pass");
 		assertNotNull(user.getLogin());
 	}
 
 	@Test
 	void testSetLogin() {
-		User user = new User("Bob", "pass");
+		User user = new User();
+		user.setLogin("Bob");
+		user.setPassword("pass");
 		user.setLogin("Bob2");
 		assertEquals("Bob2", user.getLogin());
 	}
 
 	@Test
 	void testGetPassword() {
-		User user = new User("Bob", "pass");
+		User user = new User();
+		user.setLogin("Bob");
+		user.setPassword("pass");
 		assertEquals("pass", user.getPassword());
 	}
 
 	@Test
 	void testSetPassword() {
-		User user = new User("Bob", "pass");
+		User user = new User();
+		user.setLogin("Bob");
+		user.setPassword("pass");
 		user.setPassword("pass2");
 		assertEquals("pass2", user.getPassword());
 	}
 
 	@Test
 	void testToString() {
-		User user = new User("Bob", "pass");
+		User user = new User();
+		user.setLogin("Bob");
+		user.setPassword("pass");
 		assertNotNull(user.toString());
 	}
 

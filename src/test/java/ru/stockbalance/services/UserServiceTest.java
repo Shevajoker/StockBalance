@@ -41,7 +41,9 @@ class UserServiceTest {
 	@Test
 	void testSaveUser() {
 		UserService userService = new UserService();
-		User user = new User("Jim", "qwerty");
+		User user = new User();
+		user.setLogin("Jim");
+		user.setPassword("qwerty");
 		userService.saveUser(user);
 		id = user.getId();
 		User user2 = userService.getUserById(user.getId());
@@ -86,7 +88,10 @@ class UserServiceTest {
 	@Test
 	void testCheckUser() {
 		UserService userService = new UserService();
-		User user = new User("qwe", "123");
+		User user = new User();
+		user.setLogin("qwe");
+		user.setPassword("123");
+		
 		assertTrue(userService.checkUser(user.getLogin(), user.getPassword()));
 	}
 

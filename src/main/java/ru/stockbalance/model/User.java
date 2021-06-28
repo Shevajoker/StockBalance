@@ -34,24 +34,24 @@ public class User {
 	 * @param login
 	 * @param password
 	 */
-	public User (String login, String password){
-		
-		if(login != null && login.length() < 20) {
-			this.login = login;	
-		} else {
-			System.out.println("Invalid LOGIN!!!!");
-		}
-		
-		if(password != null && password.length() < 20) {
-			this.password = password;	
-		} else {
-			System.out.println("Invalid PASSWORD!!!!");
-		}
-		
-		
-		
-		
-	}
+//	public User (String login, String password){
+//		
+//		if(login != null && login.length() < 20) {
+//			this.login = login;	
+//		} else {
+//			System.out.println("Invalid LOGIN!!!!");
+//		}
+//		
+//		if(password != null && password.length() < 20) {
+//			this.password = password;	
+//		} else {
+//			System.out.println("Invalid PASSWORD!!!!");
+//		}
+//		
+//		
+//		
+//		
+//	}
 
 	
 	/**

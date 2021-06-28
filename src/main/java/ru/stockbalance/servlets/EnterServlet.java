@@ -24,6 +24,7 @@ public class EnterServlet extends HttpServlet {
 	 * Default constructor.
 	 */
 	public EnterServlet() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -51,7 +52,11 @@ public class EnterServlet extends HttpServlet {
 			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 		} else {
 
-			User user = new User(login, password);
+			User user = new User();
+			user.setLogin(login);
+			user.setPassword(password);
+			
+			
 			UserDaoImp userDao = new UserDaoImp();
 			System.out.println(userDao.checkUser(login, password));
 			if (userDao.checkUser(login, password)) {
